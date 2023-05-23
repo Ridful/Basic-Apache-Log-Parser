@@ -28,8 +28,7 @@ def invalidCommand(userInputArgs):
 
 def isValidAction(userAction):
     return str(userAction).lower().strip() in validActions
-    
-    
+        
 def getLogs(logPath):
     """Returns a list of strings from the user selected logfile filename.log."""
     try:
@@ -39,7 +38,6 @@ def getLogs(logPath):
     except (OSError) as err:
         print(f'Oops! Exceptions in getLogs whilst doing I/O!\n{err}')
         return 0
-
 
 def log_generator(logs, runAction):
     """Iterates logs list and parses log_date, err_msg, and log_msg_content from each item list.\n
@@ -52,7 +50,6 @@ def log_generator(logs, runAction):
         if log_err_msg == f'[{runAction}]':
             yield F"{log_date} {log_msg_content}"
 
-
 def runAction(logs, runAction):
     """Executes the chosen Action on the selected logs list and returns results"""
     
@@ -63,7 +60,6 @@ def runAction(logs, runAction):
         errors = "errors: " + str(len(list(log_generator(logs, "error")))) 
         notices = "notices: " + str(len(list(log_generator(logs, "notice"))))
         return errors, notices
-
 
 if __name__ == "__main__":
     #Exit if any issues with user input args
