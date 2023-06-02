@@ -2,12 +2,11 @@ from os.path import exists
 from sys import exit, argv
 from datetime import datetime
 
-msgUsage = "Usage: \"python thisfile.py [path/to/file] [action]\" \n \
-    - [path/to/file]  \t ex: myfolder/file.log \n \
+msgUsage = "Usage: \"python logparse.py [path/to/file] [action]\" \n \
+    - [path/to/file]  \t ex: mydir/file.log \n \
     - [action] \t[statistics|error|notice] \n"
 
 validActions = ["statistics", "error", "notice"]
-
 
 def invalidCommand(userInputArgs):
     """Returns True if provided arguments triggers any unacceptable conditions.\n
@@ -51,6 +50,7 @@ def log_generator(logs, runAction):
             yield F"{log_date} {log_msg_content}"
 
 def runAction(logs, runAction):
+    
     """Executes the chosen Action on the selected logs list and returns results"""
     
     if runAction in ["error", "notice"]:
