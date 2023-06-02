@@ -50,7 +50,6 @@ def log_generator(logs, runAction):
             yield F"{log_date} {log_msg_content}"
 
 def runAction(logs, runAction):
-    
     """Executes the chosen Action on the selected logs list and returns results"""
     
     if runAction in ["error", "notice"]:
